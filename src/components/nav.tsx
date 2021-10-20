@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Icon from 'components/icon';
 
@@ -8,16 +8,24 @@ const Nav = styled.nav`
   > ul {
     display: flex;
     > li {
-      padding: 4px 0;
-      /* width: 33.33%; */
       flex-grow: 1;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      .icon {
-        width: 24px;
-        height: 24px;
+      /* width: 33.33%; */
+      /* text-align: center; */
+      > a {
+        padding: 4px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .icon {
+          width: 24px;
+          height: 24px;
+        }
+        &.selected {
+          color: red;
+          .icon {
+            fill: red;
+          }
+        }
       }
     }
   }
@@ -27,16 +35,22 @@ function navComponet() {
     <Nav>
       <ul>
         <li>
-          <Icon name="tag" />
-          <Link to="/tags">标签</Link>
+          <NavLink to="/tags" activeClassName="selected">
+            <Icon name="tag" />
+            标签
+          </NavLink>
         </li>
         <li>
-          <Icon name="money" />{'sss'}
-          <Link to="/money">记账</Link>
+          <NavLink to="/money" activeClassName="selected">
+            <Icon name="money" />
+            记账
+          </NavLink>
         </li>
         <li>
-          <Icon name="line-chart" />
-          <Link to="/statistics">统计</Link>
+          <NavLink to="/statistics" activeClassName="selected">
+            <Icon name="line-chart" />
+            统计
+          </NavLink>
         </li>
       </ul>
     </Nav>
