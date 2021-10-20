@@ -3,31 +3,49 @@ import { HashRouter as Router, Switch, Route, Link, Redirect } from "react-route
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  border: 1px solid red;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`
+const Main = styled.div`
+  flex-grow: 1;
+`
+const Nav = styled.nav`
+  border: 1px solid;
+  >ul {
+    display: flex;
+    >li{
+      padding: 16px;
+      /* width: 33.33%; */
+      flex-grow: 1;
+      text-align: center;
+    }
+  }
 `
 
 function App() {
   return (
-
     <Router>
       <Wrapper>
-      <Switch>
-          <Route path="/tags">
-            <Tags />
-          </Route>
-          <Route path="/money">
-            <Money />
-          </Route>
-          <Route path="/statistics">
-            <Statistics />
-          </Route>
-          <Redirect exact from="/" to="/money" />
-          <Route path="*">
-            <NoMatch />
-          </Route>
-        </Switch>
+        <Main>
+          <Switch>
+            <Route path="/tags">
+              <Tags />
+            </Route>
+            <Route path="/money">
+              <Money />
+            </Route>
+            <Route path="/statistics">
+              <Statistics />
+            </Route>
+            <Redirect exact from="/" to="/money" />
+            <Route path="*">
+              <NoMatch />
+            </Route>
+          </Switch>
+        </Main>
 
-        <nav>
+        <Nav>
           <ul>
             <li>
               <Link to="/tags">标签</Link>
@@ -39,7 +57,7 @@ function App() {
               <Link to="/statistics">统计</Link>
             </li>
           </ul>
-        </nav>
+        </Nav>
       </Wrapper>
     </Router>
   );
