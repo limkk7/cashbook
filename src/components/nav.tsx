@@ -1,9 +1,10 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Icon from 'components/icon';
 
 const Nav = styled.nav`
   line-height: 24px;
+  background-color: #ffffff;
   box-shadow: 0 0 3px #5336363f;
   > ul {
     display: flex;
@@ -37,13 +38,13 @@ function navComponet() {
         <li>
           <NavLink to="/tags" activeClassName="selected">
             <Icon name="tag" />
-            标签
+            分类
           </NavLink>
         </li>
         <li>
           <NavLink to="/money" activeClassName="selected">
             <Icon name="money" />
-            记账
+            记一笔
           </NavLink>
         </li>
         <li>
