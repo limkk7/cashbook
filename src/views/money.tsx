@@ -1,6 +1,6 @@
 import Layout from 'components/layout';
 import { CategorySection } from './money/categorySection';
-import { NotesSection } from './money/notesSection';
+import { NoteSection } from './money/noteSection';
 import { NumberSection } from './money/numberSection';
 import { TagsSection } from './money/tagsSection';
 
@@ -8,12 +8,7 @@ function Money() {
   return (
     <Layout>
       <TagsSection />
-      <NotesSection>
-        <label>
-          <span>备注</span>
-          <textarea placeholder="添加备注" />
-        </label>
-      </NotesSection>
+      <NoteSection />
       <CategorySection>
         <ul>
           <li className="selected">支出</li>
