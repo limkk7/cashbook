@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import Icon from "components/icon";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import Icon from 'components/icon';
 
 const Nav = styled.nav`
   line-height: 24px;
@@ -31,7 +31,7 @@ function navComponet() {
           <Link to="/tags">标签</Link>
         </li>
         <li>
-          <Icon name="money" />
+          <Icon name="money" />{'sss'}
           <Link to="/money">记账</Link>
         </li>
         <li>
