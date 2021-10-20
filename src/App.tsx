@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
+import { HashRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import styled from 'styled-components';
 import Nav from 'components/nav'
 // import "helper.scss"
@@ -8,6 +8,10 @@ const Wrapper = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  .icon {
+    width: 1em;
+    height: 1em;
+  }
   /* font-family: $font-hei; */
 `
 const Main = styled.div`
