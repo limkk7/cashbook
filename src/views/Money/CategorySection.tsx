@@ -1,11 +1,10 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.section`
   font-size: 24px;
   > ul {
     display: flex;
-    background-color: #c4c4c4;
     > li {
       width: 50%;
       text-align: center;
@@ -29,15 +28,15 @@ type Props = {
   onChange: (value: '-' | '+') => void;
 };
 
-const CategorySection: React.FC<Props> = (props) => {
-  const categoryMap = { '-': '支出', '+': '收入' };
+const CategorySection: React.FC<Props> = props => {
+  const categoryMap = {'-': '支出', '+': '收入'};
   type CategoryKeyMap = keyof typeof categoryMap;
   const [categoryList] = useState<CategoryKeyMap[]>(['-', '+']);
   // const [category, setCategory] = useState('-');
   return (
     <Wrapper>
       <ul>
-        {categoryList.map((c) => (
+        {categoryList.map(c => (
           <li
             key={c}
             className={props.value === c ? 'selected' : ''}
@@ -53,4 +52,4 @@ const CategorySection: React.FC<Props> = (props) => {
   );
 };
 
-export { CategorySection };
+export {CategorySection};

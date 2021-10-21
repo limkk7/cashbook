@@ -40,8 +40,12 @@ function useTags() {
       console.log(t);
     }
   };
+
+  const getTagName = (id: number) => tags.find(t => t.id === id)?.name ?? '';
+
   return {
     tags,
+    getTagName,
     setTags,
     addTag,
     updateTag,

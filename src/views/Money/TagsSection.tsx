@@ -11,6 +11,8 @@ const Wrapper = styled.section`
   align-items: flex-start;
   > ol {
     margin: 0 -12px;
+    display: flex;
+    flex-wrap: wrap;
     > li {
       background-color: #d9d9d9;
       border-radius: 18px;
@@ -20,6 +22,7 @@ const Wrapper = styled.section`
       margin: 8px 12px;
       cursor: pointer;
       user-select: none;
+      min-height: 24px;
       &.selected {
         background-color: #aeade3;
         color: #ffffff;
