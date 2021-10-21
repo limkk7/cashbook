@@ -24,21 +24,25 @@ const Wrapper = styled.section`
     }
   }
 `;
+type Props = {
+  value: '-' | '+';
+  onChange: (value: '-' | '+') => void;
+};
 
-const CategorySection: React.FC = () => {
+const CategorySection: React.FC<Props> = (props) => {
   const categoryMap = { '-': '支出', '+': '收入' };
   type CategoryKeyMap = keyof typeof categoryMap;
   const [categoryList] = useState<CategoryKeyMap[]>(['-', '+']);
-  const [category, setCategory] = useState('-');
+  // const [category, setCategory] = useState('-');
   return (
     <Wrapper>
       <ul>
         {categoryList.map((c) => (
           <li
             key={c}
-            className={category === c ? 'selected' : ''}
+            className={props.value === c ? 'selected' : ''}
             onClick={() => {
-              setCategory(c);
+              props.onChange(c);
             }}
           >
             {categoryMap[c]}
