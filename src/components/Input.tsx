@@ -12,7 +12,7 @@ const Label = styled.label`
       padding: 8px 0;
       display: block;
       width: 100%;
-      height: 72px;
+      height: 44px;
       font-size: 18px;
       background: none;
       border: none;

@@ -30,8 +30,9 @@ body {
 :focus {
   outline: none;
 }
-button {
-  font-family: inherit;
+button,
+input {
+  font: inherit;
 }
 .icon {
   width: 1em;
