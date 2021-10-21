@@ -1,15 +1,56 @@
+import Icon from 'components/Icon';
 import Layout from 'components/Layout';
+import styled from 'styled-components';
 import { useTags } from './useTags';
+
+const TagList = styled.ol`
+  font-size: 16px;
+  background-color: #ffffff;
+  > li {
+    line-height: 20px;
+    border-bottom: 1px solid #d5d5d9;
+    padding: 12px 16px;
+    margin-left: 16px;
+    /* margin-right: 16px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+`
+
+const Button = styled.button`
+  font-size: 18px; border: none; padding: 8px 12px;
+  background-color: #f60;
+  border-radius: 4px;
+  color: #ffffff;
+`
+const Center = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+const Space = styled.div`
+  height: 32px;
+`
 
 function Tags() {
   const { tags, setTags } = useTags();
   return (
     <Layout>
-      <ol>
-        {tags.map((tag) => (
-          <li key={tag}>{tag}</li>
-        ))}
-      </ol>
+      <TagList>
+        {
+          tags.map(tag =>
+            <li key={tag}>
+              <span className="oneLine">{tag}</span>
+              <Icon name="icon-arrow-right" />
+            </li>
+          )
+        }
+      </TagList>
+      <Space />
+      <Center>
+        <Button>新增标签</Button>
+      </Center>
     </Layout>
   );
 }

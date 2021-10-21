@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import { useTags } from 'views/useTags';
 
@@ -64,11 +63,11 @@ const TagsSection: React.FC<Props> = (props) => {
   return (
     <Wrapper>
       <ol>
-        {tags.map((tag) => (
+        {tags.map(tag =>
           <li key={tag} className={selectedTags.indexOf(tag) >= 0 ? 'selected' : ''} onClick={() => onToggleTag(tag)}>
             {tag}
           </li>
-        ))}
+        )}
       </ol>
       <button onClick={onAddTag}>新增标签</button>
     </Wrapper>

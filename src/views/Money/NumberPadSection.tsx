@@ -1,3 +1,4 @@
+import Icon from 'components/Icon';
 import React from 'react';
 import { generateOuput } from './NumberPadSection/generateOuput';
 import { NumberPadWrapper } from './NumberPadSection/NumberPadWrapper';
@@ -44,9 +45,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
         {textMap.map((text: string) => (
           <button key={text} className={classMap[text] || ''} value={text}>
             {text === 'delete' ? (
-              <svg className="icon" aria-hidden="true">
-                <use xlinkHref="#icon-delete"></use>
-              </svg>
+              <Icon name="icon-delete" />
             ) : (
               text
             )}
