@@ -1,9 +1,9 @@
-import Layout from 'components/layout';
+import Layout from 'components/Layout';
 import { useState } from 'react';
-import { CategorySection } from './money/categorySection';
-import { NoteSection } from './money/noteSection';
-import { NumberSection } from './money/numberSection';
-import { TagsSection } from './money/tagsSection';
+import { CategorySection } from './Money/CategorySection';
+import { NoteSection } from './Money/NoteSection';
+import { NumberPadSection } from './Money/NumberPadSection';
+import { TagsSection } from './Money/TagsSection';
 
 type Category = '-' | '+';
 
@@ -26,7 +26,7 @@ function Money() {
       <TagsSection value={selected.tags} onChange={(tags) => onChange({ tags })} />
       <NoteSection value={selected.note} onChange={(note) => onChange({ note })} />
       <CategorySection value={selected.category} onChange={(category) => onChange({ category })} />
-      <NumberSection value={selected.amount} onChange={(amount) => onChange({ amount })} onOk={() => {}} />
+      <NumberPadSection value={selected.amount} onChange={(amount) => onChange({ amount })} onOk={() => {}} />
     </Layout>
   );
 }

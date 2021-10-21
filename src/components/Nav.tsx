@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import Icon from 'components/icon';
+import Icon from 'components/Icon';
 
 const Nav = styled.nav`
   line-height: 24px;

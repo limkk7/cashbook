@@ -1,16 +1,16 @@
 import React from 'react';
-import { generateOuput } from './numberPadSection/generateOuput';
-import { NumberPadWrapper } from './numberPadSection/numberPadWrapper';
+import { generateOuput } from './NumberPadSection/generateOuput';
+import { NumberPadWrapper } from './NumberPadSection/NumberPadWrapper';
 
 interface Obj {
-  [index: string]: string | undefined;
+  [index: string]: string;
 }
 type Props = {
   value: number;
   onChange: (value: number) => void;
   onOk?: () => void;
 };
-const NumberSection: React.FC<Props> = (props) => {
+const NumberPadSection: React.FC<Props> = (props) => {
   const output = props.value.toString();
   const textMap: string[] = ['1', '2', '3', 'delete', '4', '5', '6', 'AC', '7', '8', '9', 'ok', '0', '.'];
   const classMap: Obj = { ok: 'ok', '0': 'zero' };
@@ -42,7 +42,7 @@ const NumberSection: React.FC<Props> = (props) => {
       <div className="output">{output}</div>
       <div className="pad" onClick={onClickButtonWrapper}>
         {textMap.map((text: string) => (
-          <button className={classMap[text] || ''} value={text}>
+          <button key={text} className={classMap[text] || ''} value={text}>
             {text === 'delete' ? (
               <svg className="icon" aria-hidden="true">
                 <use xlinkHref="#icon-delete"></use>
@@ -57,4 +57,4 @@ const NumberSection: React.FC<Props> = (props) => {
   );
 };
 
-export { NumberSection };
+export { NumberPadSection };

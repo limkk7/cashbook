@@ -1,9 +1,9 @@
 import React from 'react';
 import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import Tags from 'views/tags';
-import Money from 'views/money';
-import Statistics from 'views/statistics';
-import NoMatch from 'views/noMatch';
+import Tags from 'views/Tags';
+import Money from 'views/Money';
+import Statistics from 'views/Statistics';
+import NoMatch from 'views/NoMatch';
 import styled from 'styled-components';
 
 const AppWrapper = styled.div`

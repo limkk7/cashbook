@@ -43,7 +43,7 @@ type Props = {
 };
 
 const TagsSection: React.FC<Props> = (props) => {
-  const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
+  const [tags, setTags] = useState(['衣', '食', '住', '行']);
   const selectedTags = props.value;
   // const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const onAddTag = () => {
