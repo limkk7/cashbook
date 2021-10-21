@@ -15,18 +15,24 @@ function useTags() {
   })
   const findTagIndex = (id: number) => tags.findIndex((x) => x.id === id)
   const updateTag = (id: number, tagName: string) => {
-    let index = findTagIndex(id)
+    const index = findTagIndex(id)
     if (index > -1) {
       const newTag = [...tags]
       newTag.splice(index, 1, { id: id, name: tagName })
       setTags(newTag)
     }
   }
-
+  const deleteTag = (id: number) => {
+    const index = findTagIndex(id)
+    const newTag = [...tags]
+    newTag.splice(index, 1)
+    setTags(newTag)
+  }
   return {
     tags,
     setTags,
     updateTag,
+    deleteTag,
     findTag,
     findTagIndex
   };
