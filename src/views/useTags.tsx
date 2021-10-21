@@ -13,6 +13,7 @@ function useTags() {
   const findTag = (id: number) => tags.find(tag => {
     return tag.id === id
   })
+
   return {
     tags,
     setTags,

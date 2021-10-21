@@ -1,3 +1,4 @@
+import { Button } from 'components/Button';
 import Icon from 'components/Icon';
 import Layout from 'components/Layout';
 import { Link } from 'react-router-dom';
@@ -21,14 +22,7 @@ const TagList = styled.ol`
   }
 `;
 
-const Button = styled.button`
-  font-size: 18px;
-  border: none;
-  padding: 8px 12px;
-  background-color: #f60;
-  border-radius: 4px;
-  color: #ffffff;
-`;
+
 const Center = styled.div`
   display: flex;
   justify-content: center;
@@ -40,7 +34,6 @@ const Space = styled.div`
 
 function Tags() {
   const { tags } = useTags();
-  console.log(tags)
   return (
     <Layout>
       <TagList>
