@@ -13,11 +13,22 @@ function useTags() {
   const findTag = (id: number) => tags.find(tag => {
     return tag.id === id
   })
+  const findTagIndex = (id: number) => tags.findIndex((x) => x.id === id)
+  const updateTag = (id: number, tagName: string) => {
+    let index = findTagIndex(id)
+    if (index > -1) {
+      const newTag = [...tags]
+      newTag.splice(index, 1, { id: id, name: tagName })
+      setTags(newTag)
+    }
+  }
 
   return {
     tags,
     setTags,
-    findTag
+    updateTag,
+    findTag,
+    findTagIndex
   };
 }
 export { useTags };
