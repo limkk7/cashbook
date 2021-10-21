@@ -1,11 +1,11 @@
-import { Button } from 'components/Button';
-import { Center } from 'components/Center';
+import {Button} from 'components/Button';
+import {Center} from 'components/Center';
 import Icon from 'components/Icon';
 import Layout from 'components/Layout';
-import { Space } from 'components/Space';
-import { Link } from 'react-router-dom';
+import {Space} from 'components/Space';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import { useTags } from './useTags';
+import {useTags} from 'hooks/useTags';
 
 const TagList = styled.ol`
   font-size: 16px;
@@ -15,7 +15,7 @@ const TagList = styled.ol`
     border-bottom: 1px solid #d5d5d9;
     margin-left: 16px;
     /* margin-right: 16px; */
-    >a {
+    > a {
       padding: 12px 16px 12px 0;
       display: flex;
       justify-content: space-between;
@@ -25,7 +25,7 @@ const TagList = styled.ol`
 `;
 
 function Tags() {
-  const { tags } = useTags();
+  const {tags, addTag} = useTags();
   return (
     <Layout>
       <TagList>
@@ -43,7 +43,7 @@ function Tags() {
       <Space />
       <Space />
       <Center>
-        <Button>新增标签</Button>
+        <Button onClick={addTag}>新增标签</Button>
       </Center>
     </Layout>
   );

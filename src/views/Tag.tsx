@@ -1,4 +1,4 @@
-import {useTags} from './useTags';
+import {useTags} from 'hooks/useTags';
 import {useHistory, useParams} from 'react-router-dom';
 import Layout from 'components/Layout';
 import Icon from 'components/Icon';
@@ -55,7 +55,14 @@ const Tag: React.FC = () => {
           <Space />
           <Space />
           <Center>
-            <Button onClick={() => deleteTag(id)}>删除标签</Button>
+            <Button
+              onClick={() => {
+                deleteTag(id);
+                history.goBack();
+              }}
+            >
+              删除标签
+            </Button>
           </Center>
         </>
       ) : (
