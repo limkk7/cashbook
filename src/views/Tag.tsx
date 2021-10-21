@@ -1,15 +1,19 @@
-import { useParams } from "react-router-dom"
 import { useTags } from "./useTags"
+import { useParams } from "react-router-dom"
+import Layout from "components/Layout"
 
 type Params = {
-  id: string
+  tagId: string
 }
 
 const Tag: React.FC = () => {
-  const { tags } = useTags()
-  const { id } = useParams<Params>()
+  const { findTag } = useTags()
+  const { tagId } = useParams<Params>()
 
-  const tag = findTag(id)
-  return (<>{tag.name}</>)
+  const tag = findTag(parseInt(tagId))
+  return (<Layout>
+    <div>{tag && tag.name}</div>
+  </Layout>
+  )
 }
 export { Tag }
