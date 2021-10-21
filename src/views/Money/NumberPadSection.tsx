@@ -1,7 +1,7 @@
 import Icon from 'components/Icon';
-import React from 'react';
-import { generateOuput } from './NumberPadSection/generateOuput';
-import { NumberPadWrapper } from './NumberPadSection/NumberPadWrapper';
+import React, {useState} from 'react';
+import {generateOuput} from './NumberPadSection/generateOuput';
+import {NumberPadWrapper} from './NumberPadSection/NumberPadWrapper';
 
 interface Obj {
   [index: string]: string;
@@ -11,18 +11,20 @@ type Props = {
   onChange: (value: number) => void;
   onOk?: () => void;
 };
-const NumberPadSection: React.FC<Props> = (props) => {
-  const output = props.value.toString();
+const NumberPadSection: React.FC<Props> = props => {
+  // const output = props.value.toString();
+  const [output, _setOutput] = useState(props.value.toString());
   const textMap: string[] = ['1', '2', '3', 'delete', '4', '5', '6', 'AC', '7', '8', '9', 'ok', '0', '.'];
-  const classMap: Obj = { ok: 'ok', '0': 'zero' };
+  const classMap: Obj = {ok: 'ok', '0': 'zero'};
   const setOutput = (output: string) => {
-    let value = output;
+    let newOutput = output;
     if (output.length > 22) {
-      value = output.slice(0, 22);
+      newOutput = output.slice(0, 22);
     } else if (output.length === 0) {
-      value = '0';
+      newOutput = '0';
     }
-    props.onChange(parseFloat(value));
+    _setOutput(newOutput);
+    props.onChange(parseFloat(newOutput));
   };
 
   const onClickButtonWrapper = (e: React.MouseEvent) => {
@@ -44,11 +46,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
       <div className="pad" onClick={onClickButtonWrapper}>
         {textMap.map((text: string) => (
           <button key={text} className={classMap[text] || ''} value={text}>
-            {text === 'delete' ? (
-              <Icon name="icon-delete" />
-            ) : (
-              text
-            )}
+            {text === 'delete' ? <Icon name="icon-delete" /> : text}
           </button>
         ))}
       </div>
@@ -56,4 +54,4 @@ const NumberPadSection: React.FC<Props> = (props) => {
   );
 };
 
-export { NumberPadSection };
+export {NumberPadSection};

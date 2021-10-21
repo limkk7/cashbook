@@ -25,6 +25,15 @@ function useRecords() {
   }, [records]);
 
   const addRecord = (newRecord: newRecordItem) => {
+    if (newRecord.amount <= 0) {
+      alert('请输入金额');
+      return;
+    }
+    if (newRecord.tagIds.length === 0) {
+      alert('请选择标签');
+      return;
+    }
+
     const record = {...newRecord, createdAt: new Date().toISOString()};
     setRecords([...records, record]);
   };
