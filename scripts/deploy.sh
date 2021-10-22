@@ -2,6 +2,7 @@
 
 yarn build &&
 cd build
+echo "cashbook.versionlin.xyz" > CNAME
 git init &&
 git add . &&
 git commit -m 'deploy' &&
