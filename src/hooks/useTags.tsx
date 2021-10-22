@@ -19,7 +19,7 @@ function useTags() {
   }, []);
   useUpdate(() => {
     window.localStorage.setItem('tag', JSON.stringify(tags));
-  }, [tags]);
+  }, tags);
 
   const findTag = (id: number) =>
     tags.find(tag => {
