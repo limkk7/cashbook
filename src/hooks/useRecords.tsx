@@ -22,20 +22,21 @@ function useRecords() {
 
   useUpdate(() => {
     window.localStorage.setItem('record', JSON.stringify(records));
-  }, [records]);
+  }, records);
 
   const addRecord = (newRecord: newRecordItem) => {
+    console.log(newRecord);
     if (newRecord.amount <= 0) {
       alert('请输入金额');
-      return;
+      return false;
     }
     if (newRecord.tagIds.length === 0) {
       alert('请选择标签');
-      return;
+      return false;
     }
-
     const record = {...newRecord, createdAt: new Date().toISOString()};
     setRecords([...records, record]);
+    return true;
   };
 
   return {
@@ -44,3 +45,4 @@ function useRecords() {
   };
 }
 export {useRecords};
+export type {RecordItem};

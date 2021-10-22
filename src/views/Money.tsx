@@ -24,25 +24,46 @@ function Money() {
   const [selected, setSelected] = useState(defaultFormData);
   type Selected = typeof selected;
   const {addRecord} = useRecords();
+  const [output, _setOutput] = useState(selected.amount.toString());
   const onChange = (obj: Partial<Selected>) => {
+    console.log('obj');
+    console.log({
+      ...obj,
+    });
+    console.log({
+      ...selected,
+    });
     setSelected({
       ...selected,
       ...obj,
     });
   };
   const onSubmit = () => {
-    addRecord(selected);
-    alert('保存成功');
-    setSelected(defaultFormData);
+    const success = addRecord(selected);
+    if (success) {
+      alert('保存成功');
+      console.log(defaultFormData);
+      setSelected({...defaultFormData});
+      _setOutput('0');
+    }
   };
+  console.log(selected);
   return (
-    <Layout>
+    <Layout
+    //  scrollTop={99999}
+    >
       <TagsSection value={selected.tagIds} onChange={tags => onChange({tagIds: tags})} />
       <NoteSection value={selected.note} onChange={note => onChange({note})} />
       <CategoryWrapper>
         <CategorySection value={selected.category} onChange={category => onChange({category})} />
       </CategoryWrapper>
-      <NumberPadSection value={selected.amount} onChange={amount => onChange({amount})} onOk={onSubmit} />
+      <NumberPadSection
+        value={selected.amount}
+        onChange={amount => onChange({amount})}
+        onSubmit={onSubmit}
+        _setOutput={newOutput => _setOutput(newOutput)}
+        output={output}
+      />
     </Layout>
   );
 }
