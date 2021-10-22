@@ -45,7 +45,17 @@ const NumberPadWrapper = styled.section`
       grid-row-end: 5;
       height: calc(69px * 2);
     }
+    @media (max-height: 750px) {
+      > button {
+        font-size: 24px;
+        height: 40px;
+        margin: 4px;
+      }
+      > .ok {
+        height: calc(44px * 2);
+      }
+    }
   }
 `;
 
-export { NumberPadWrapper };
+export {NumberPadWrapper};

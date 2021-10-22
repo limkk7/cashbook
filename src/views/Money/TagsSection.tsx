@@ -7,9 +7,12 @@ const Wrapper = styled.section`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-start;
+  flex-shrink: 1;
+  overflow: auto;
   > ol {
+    overflow: auto;
     margin: 0 -12px;
     display: flex;
     flex-wrap: wrap;
@@ -48,7 +51,6 @@ type Props = {
 const TagsSection: React.FC<Props> = props => {
   const {tags, addTag} = useTags();
   const selectedTagIds = props.value;
-  // const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   const onToggleTag = (tagId: number) => {
     const index = selectedTagIds.indexOf(tagId);
